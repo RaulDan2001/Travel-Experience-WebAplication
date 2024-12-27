@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+    .hero {
+        background: url("{{ url_for('static', filename='GetStared.jpg') }}") no-repeat center center;
+        color: white;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+</style>
+<!--Sectiunea de get stared -->
+<div class="jumbotron text-center hero">
+    <h1 class="display-4 mb-3">Welcome to TripShare</h1>
+    <p class="lead mb-4">Discover and Share Your Travel Experiences</p>
+    <a class="btn btn-primary btn-lg" href="/sign-up" role="button">Get Started</a>
+</div>
+<!--Sectiunea pentru exemple de povesti -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Recent travel experiences</h2>
+    <div class="row">
+        <!--Cardul cu Paris-->
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='card1.jpg') }}" alt="Trip 1" />
+                <div class="card-body">
+                    <h5 class="card-title">Amazing trip to Paris</h5>
+                    <p class="card-text">Explore the beauty of Paris with its iconic landmarks and rich culture.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <!--Cardul cu Maldive-->
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='card2.jpg') }}" alt="Trip 2" />
+                <div class="card-body">
+                    <h5 class="card-title">A tropical Paradise</h5>
+                    <p class="card-text">Relaxing under the sun and enjoying the pristine beaches of the Maldives.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <!--Cadrul cu Japonia-->
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='card3.jpg') }}" alt="Trip 3" />
+                <div class="card-body">
+                    <h5 class="card-title">Cultural Wonders of Japan</h5>
+                    <p class="card-text">Delving into the rich history and culture of Kyoto and Tokyo.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Sectiunea pentru indemn-->
+<div class="bg-dark text-white py-5">
+     <div class="container text-center">
+        <h2>Ready to share your story?</h2>
+        <p class="lead">Join our community of travelers and inspire others with your adventures</p>
+        <a href="/sign-up" class="btn btn-success btn-lg">Join Now</a> 
+     </div>
+</div>
+
+{% endblock %}

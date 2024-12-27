@@ -1,0 +1,24 @@
+﻿{% extends "base.html" %}
+{% block title %}All Trips{% endblock %}
+{% block content %}
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">All trips</h1>
+    <div class="row">
+        {% for trip in trips %}
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{url_for('static', filename='GetStared.jpg')}}" alt="UserImage" />
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{trip.start_location}} <span class="arrow">→</span> {{trip.end_location}}
+                    </h5>
+                    <p class="card-text">{{ trip.story }}</p>
+                    <p class="card-text"><small class="text-muted">By {{ trip.user.first_name }} {{ ' ' }} {{ trip.user.last_name }}</small></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

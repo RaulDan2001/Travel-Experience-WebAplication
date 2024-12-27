@@ -1,0 +1,46 @@
+﻿{% extends "base.html" %}
+{% block title %}My Trips{% endblock %}
+{% block content %}
+<style>
+    .arrow {
+        margin: 0 10px;
+        font-size: 30px;
+        color: #3498db;
+    }
+</style>
+<h1 aling="center">Your Trips</h1>
+<div class="container my-5">
+    <div class="row">
+        {% for trip in user.trips %}
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{url_for('static', filename='GetStared.jpg')}}" alt="UserImage" />
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{trip.start_location}} <span class="arrow">→</span> {{trip.end_location}}
+                    </h5>
+                    <p class="card-text">{{ trip.story }}</p>
+                </div>
+                <button type="button" class="close" onclick="deleteTrip({{ trip.id }})">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<form method="post">
+    <h3 allign="center">Add a new trip</h3>
+    <h5>Where your journey stared ?</h5>
+    <textarea name="start_location" id="sl" class="form-control"></textarea>
+    <h5>Where your journey ended ?</h5>
+    <textarea name="end_location" id="el" class="form-control"></textarea>
+    <h5>Tell people more about your journey</h5>
+    <textarea name="story" id="st" class="form-control"></textarea>
+    <br />
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Add Trip</button>
+    </div>
+</form>
+
+{% endblock %}
